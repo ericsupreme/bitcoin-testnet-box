@@ -1,0 +1,7 @@
+image:
+  file: Dockerfile
+
+# tasks:
+  # - command: sudo docker-up
+  # name: Docker daemon
+  #  - command: docker
