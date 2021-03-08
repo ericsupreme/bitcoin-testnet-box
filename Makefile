@@ -9,6 +9,8 @@ BLOCKS=1
 ADDRESS=
 AMOUNT=
 ACCOUNT=
+WALLET1=
+WALLET2=
 
 start:
 	$(BITCOIND) $(B1) -daemon
@@ -17,6 +19,12 @@ start:
 start-gui:
 	$(BITCOINGUI) $(B1) &
 	$(BITCOINGUI) $(B2) &
+
+wallet1-new:
+	$(BITCOINCLI) $(B1) createwallet $(WALLET1)
+
+wallet2-new:
+	$(BITCOINCLI) $(B2) createwallet $(WALLET2)
 
 generate-new:
 	ADDR="$(shell $(BITCOINCLI) $(B1) getnewaddress)"; $(BITCOINCLI) $(B1) generatetoaddress $(BLOCKS) $$ADDR
