@@ -37,3 +37,6 @@ WORKDIR /home/tester/bitcoin-testnet-box
 # expose two rpc ports for the nodes to allow outside container access
 EXPOSE 19001 19011
 CMD ["/bin/bash"]
+
+# install jq
+RUN apt-get update && apt-get install -y jq
