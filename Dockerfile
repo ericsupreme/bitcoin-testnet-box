@@ -12,6 +12,10 @@ RUN apt-get update && \
 	apt-get update && \
 	apt-get install --yes bitcoind make nano-tiny net-tools
 
+# install jq
+RUN apt-get update && \
+    apt-get install jq
+
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
 
@@ -38,5 +42,4 @@ WORKDIR /home/tester/bitcoin-testnet-box
 EXPOSE 19001 19011
 CMD ["/bin/bash"]
 
-# install jq
-RUN apt-get update && apt-get install -y jq
+
