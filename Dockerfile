@@ -14,7 +14,8 @@ RUN apt-get update && \
 
 # install jq
 RUN apt-get update && \
-    apt-get install jq
+    apt-get install -y wget && \
+    rm -rf /var/lib/apt/lists/*
 
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
@@ -38,8 +39,15 @@ USER tester
 # run commands from inside the testnet-box directory
 WORKDIR /home/tester/bitcoin-testnet-box
 
+WORKDIR /bin
+RUN wget "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" && chmod 755 jq
+
+WORKDIR /data
+
 # expose two rpc ports for the nodes to allow outside container access
 EXPOSE 19001 19011
 CMD ["/bin/bash"]
+CMD ["/bin/jq"]
+
 
 
