@@ -9,8 +9,6 @@ LABEL maintainer="Nika Topolchanskaya <nanodesuu@gmail.com>"
 RUN apt-get update && \
 	apt-get install --yes software-properties-common && \
 	add-apt-repository --yes ppa:luke-jr/bitcoincore && \
-	apt-get update && \
-    apt-get install python3-pip && \
     apt-get update && \
 	apt-get install --yes bitcoind make nano-tiny net-tools
 
