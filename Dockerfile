@@ -14,7 +14,7 @@ RUN apt-get update && \
 
 # install jq
 RUN apt-get update && \
-    sudo apt-get -y install python3-pip
+    apt-get install python3-pip
 
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
