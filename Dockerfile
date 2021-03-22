@@ -10,11 +10,9 @@ RUN apt-get update && \
 	apt-get install --yes software-properties-common && \
 	add-apt-repository --yes ppa:luke-jr/bitcoincore && \
 	apt-get update && \
+    apt-get install python3-pip && \
+    apt-get update && \
 	apt-get install --yes bitcoind make nano-tiny net-tools
-
-# install jq
-RUN apt-get update && \
-    apt-get install python3-pip
 
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
