@@ -14,11 +14,6 @@ RUN apt-get update && \
 
 # create a non-root user
 RUN adduser --disabled-login --gecos "" tester
-# install jq
-USER root
-apt-get update && \
-sudo apt-get install jq
-
 
 # run following commands from user's home directory
 WORKDIR /home/tester
