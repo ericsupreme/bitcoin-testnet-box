@@ -1,7 +1,2 @@
 image:
   file: Dockerfile
-tasks:
-  command: JQ=/usr/bin/jq
-  - init: >
-  sudo curl https://stedolan.github.io/jq/download/linux64/jq > $JQ && chmod +x $JQ
-  
